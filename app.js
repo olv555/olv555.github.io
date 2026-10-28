@@ -1,3 +1,6 @@
+const categories=['content','content','content','content','animation','animation','animation','shortfilm'];
+function categoryProjects(index){return categories.flatMap((category,i)=>category===categories[index]?[i]:[]);}
+function adjacentProject(index,direction){const group=categoryProjects(index);return group[group.indexOf(index)+direction];}
 const overlay=document.querySelector('#overlay');
 const dialog=document.querySelector('.popover');
 const background=document.querySelector('#background');
@@ -76,22 +79,24 @@ function renderProject(index){
     return section;
   });
   links=[...nav.querySelectorAll('a')];
-  previous.disabled=index===0;
-  next.disabled=index===projects.length-1;
-  document.querySelector('#project-status').textContent='Project '+(index+1)+' of '+projects.length+': '+project.name;
+  const group=categoryProjects(index);
+  previous.disabled=adjacentProject(index,-1)===undefined;
+  next.disabled=adjacentProject(index,1)===undefined;
+  document.querySelector('#project-status').textContent='Project '+(group.indexOf(index)+1)+' of '+group.length+': '+project.name;
   document.title=project.name+' — Portfolio';
   updateScrollSpace();
   text.scrollTop=0;
   imageScroll.scrollTop=0;
   select(sections[0].id);
-  if(document.activeElement===next&&next.disabled)previous.focus({preventScroll:true});
-  if(document.activeElement===previous&&previous.disabled)next.focus({preventScroll:true});
+  if(document.activeElement===next&&next.disabled&&!previous.disabled)previous.focus({preventScroll:true});
+  if(document.activeElement===previous&&previous.disabled&&!next.disabled)next.focus({preventScroll:true});
 }
 function showProject(index,syncUrl=true){
-  if(index<0||index>=projects.length)return;
+  if(!Number.isInteger(index)||index<0||index>=projects.length)return;
+  if(activeCategory!==categories[index])renderWorks(categories[index]);
   renderProject(index);
   if(overlay.hidden)open(false);
-  preloadNeighbourMedia(index);
+  preloadNeighbourMedia(index,[adjacentProject(index,1),adjacentProject(index,-1)].filter(Number.isInteger));
   if(syncUrl)setProjectUrl(index);
 }
 function restoreRoute(){
@@ -101,8 +106,8 @@ function restoreRoute(){
   else close(false);
 }
 
-previous.addEventListener('click',()=>showProject(projectIndex-1));
-next.addEventListener('click',()=>showProject(projectIndex+1));
+previous.addEventListener('click',()=>showProject(adjacentProject(projectIndex,-1)));
+next.addEventListener('click',()=>showProject(adjacentProject(projectIndex,1)));
 overlay.addEventListener('click',event=>{if(event.target===overlay)close();});
 text.addEventListener('scroll',()=>{
   if(navigating||!sections.length)return;
@@ -121,12 +126,10 @@ document.addEventListener('keydown',event=>{
   }
 });
 window.addEventListener('popstate',restoreRoute);
-renderProject(0);
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/route-worker.js').catch(error=>console.warn('Navigation fallback unavailable:',error));
 }
 
-const categories=['content','content','content','content','animation','animation','animation','shortfilm'];
 const glowColours=['#ff8888','#fec97a','#1dbfe1','#1fbb9f'];
 const grid=document.querySelector('.work-grid');
 let activeCategory=new URLSearchParams(location.search).get('category')||'content';

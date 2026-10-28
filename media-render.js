@@ -56,12 +56,12 @@ const neighbourImages=new Map();
 let neighbourQueue=[];
 let neighbourTimer;
 let neighbourLoading=false;
-function preloadNeighbourMedia(index){
+function preloadNeighbourMedia(index,neighbours=[index+1,index-1]){
   clearTimeout(neighbourTimer);
   neighbourQueue=[];
   neighbourTimer=setTimeout(()=>{
     const urls=[];
-    for(const neighbour of [index+1,index-1]){
+    for(const neighbour of neighbours){
       if(!projectMedia[neighbour])continue;
       for(const row of projectMedia[neighbour].rows.slice(0,2)){
         for(const item of row.items){
