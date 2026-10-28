@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio — Project details</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/interactions.css"></head>
+<body>
+  <main id="background">
+    <aside class="site-sidebar" aria-label="Site navigation"><button class="site-menu" aria-label="Expand navigation" aria-expanded="false" aria-controls="site-links"><img src="/assets/menu.svg" width="24" height="24" alt=""></button><nav id="site-links" class="site-links"><div class="site-nav-group"><a class="site-link " href="/home.html" ><span class="site-icon"><img src="/assets/home.png" width="34" height="40" alt=""></span><span>Home</span></a></div><div class="site-nav-group"><a class="site-link current" href="/" aria-current="page"><span class="site-icon"><img src="/assets/works.png" width="34" height="40" alt=""></span><span>My works</span></a><div class="site-categories"><a href="/?category=content">Content Creation</a><a href="/?category=animation">Animation</a><a href="/?category=shortfilm">Short Film</a></div></div><div class="site-nav-group"><a class="site-link " href="/contact.html" ><span class="site-icon"><img src="/assets/contact.png" width="34" height="42" alt=""></span><span>Contact</span></a></div></nav></aside>
+    <div class="works-main">
+      <div class="works-logo"><img src="/assets/logo.png" width="48" height="40" alt="Portfolio"></div>
+      <div class="category-chips" role="group" aria-label="Filter works">
+        <button type="button" data-category="content" aria-pressed="true">Content Creation</button>
+        <button type="button" data-category="animation" aria-pressed="false">Animation</button>
+        <button type="button" data-category="shortfilm" aria-pressed="false">Shortfilm</button>
+      </div>
+      <h1 class="sr-only">My works</h1>
+      <div class="work-grid" aria-label="Projects"></div>
+      <span id="filter-status" class="sr-only" role="status"></span>
+    </div>
+  </main>
+  <div id="overlay" hidden>
+    <div class="popover" role="dialog" aria-modal="true" aria-labelledby="project-title" tabindex="-1">
+      <div class="panel">
+        <div class="arrows" aria-label="Project navigation"><button id="previous-project" type="button" aria-label="Previous project" disabled>&lt;</button><button id="next-project" type="button" aria-label="Next project">&gt;</button></div>
+        <span id="project-status" class="sr-only" role="status" aria-live="polite"></span>
+        <div class="project-heading"><h1 id="project-title"></h1><p id="project-description"></p></div>
+        <nav aria-label="Project sections"></nav>
+        <article class="text-scroll" tabindex="0" aria-label="Project text"></article>
+      </div>
+      <aside class="image-scroll" tabindex="0" aria-label="Project images">
+        <div class="photo-placeholder placeholder-landscape" role="img" aria-label="Project photo placeholder"></div>
+        <div class="photo-placeholder placeholder-portrait" role="img" aria-label="Project photo placeholder"></div>
+      </aside>
+    </div>
+  </div>
+  <script src="/projects.js"></script>
+  <script src="/project-media.js"></script><script src="/media-render.js"></script><script src="/app.js"></script>
+<script src="/interactions.js"></script><section class="desktop-notice" aria-label="Desktop viewing recommended"><img src="/assets/pages/desktop-only.png" width="250" height="212" alt="huixianmy.github.io is available via desktop. Please open this link on a PC/Mac for a better experience."></section></body></html>
+
+

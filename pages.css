@@ -1,0 +1,68 @@
+@font-face{font-family:Inter;src:url('/fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+.static-page{background:#000;color:#f2f2f2;min-width:1280px;font-family:'TT Travels Next',sans-serif}
+.page-canvas{position:relative;width:100%;margin:0;overflow:visible}
+.home-canvas{height:1658px}.contact-canvas{height:872px}
+.static-logo{position:absolute;left:181px;top:37px;z-index:3;object-fit:contain}
+.static-sidebar{position:fixed;left:0;top:0;bottom:0;width:116px;background:#191919;z-index:10}
+.static-menu{position:absolute;left:48px;top:53px}
+.static-nav{position:absolute;left:28px;top:121px;width:59px;display:flex;flex-direction:column;gap:28px}
+.static-nav-item{display:flex;flex-direction:column;align-items:center;gap:12px;font:500 12px/18px Poppins,sans-serif;letter-spacing:.24px;white-space:nowrap}
+.static-icon{display:flex;align-items:center;justify-content:center;position:relative}
+.static-icon img{position:relative;object-fit:contain}
+.selected .static-icon::before{content:'';position:absolute;inset:4px;background:#fff;opacity:.3;filter:blur(14.3px)}
+.greeting{position:absolute;left:189px;top:200px;margin:0;font-size:48px;line-height:63px;font-weight:500;letter-spacing:0}
+.greeting>span:not(.sr-only),.greeting>strong{display:block}.greeting>strong{font-weight:807}
+.portfolio-art{position:absolute;left:189px;top:319px;width:599px;height:262px;pointer-events:none}
+.website-line{position:absolute;left:189px;top:483px;margin:0;font-size:48px;font-weight:500;line-height:63px}
+.about-pill{position:absolute;left:189px;top:587px;width:173px;height:48px;border:1px solid white;border-radius:30px;display:grid;place-items:center;font-size:20px;font-weight:351}
+.portrait-art{position:absolute;left:752.817px;top:127px;width:528px;height:563px}
+.rainbow-art{position:absolute;left:1050.333px;top:691.465px;width:296.59px;height:128.922px;transform:rotate(-21.8deg)}
+.cloud-art{position:absolute;left:905px;top:732px;width:271px;height:134px}
+.decoration{position:absolute;pointer-events:none}
+.star-91{left:690.081px;top:383.096px;width:35px;height:35px}
+.star-92{left:1226.608px;top:132.541px;width:44px;height:43px}
+.star-115{left:395.886px;top:208.005px;width:36px;height:36px}
+.star-96{left:363.939px;top:657.526px;width:33px;height:33px}
+.star-98{left:9.735px;top:303.434px;width:61px;height:43px}
+.star-99{left:597.934px;top:540.897px;width:62px;height:49px}
+.sparkle-art{position:absolute;left:802.816px;top:234.816px;width:57.566px;height:57.566px;display:grid;place-items:center}
+.sparkle-art img{width:49px;height:49px;transform:rotate(11.17deg)}
+.about-copy{position:absolute;left:258px;top:922px;width:479px;font:400 20px/30px Poppins,sans-serif;letter-spacing:-.8px;text-align:justify}
+.about-copy p{margin:0}
+.skills-grid{position:absolute;left:246px;top:1197px;width:958px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.skill{width:96px;height:98px;margin:0;justify-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.skill-image{width:64px;height:64px;display:flex;align-items:center;justify-content:center}
+.skill-image img{max-width:64px;max-height:64px;object-fit:contain}
+.skill figcaption{font:400 11px/14px Inter,sans-serif;width:96px;text-align:center;color:#fff}
+.contact-title{position:absolute;left:181px;top:156px;margin:0;font-size:48px;line-height:63.024px;font-weight:807}
+.contact-orbit{position:absolute;left:503.391px;top:239px;width:698.104px;height:516.34px}
+.contact-arc{position:absolute;left:755px;top:116px;width:466.44px;height:360.37px;display:grid;place-items:center}
+.contact-arc img{width:451.052px;height:153.035px;transform:rotate(30.42deg)}
+.contact-banner{position:absolute;left:41px;top:735px;width:1239px;height:54px}
+
+
+.greeting{z-index:1}
+
+
+.contact-banner{mix-blend-mode:screen}
+
+
+/* Desktop anchors: sidebar 116px + fixed 65px gap. */
+.intro-anchor{position:absolute;left:181px;top:200px;width:599px;height:435px}
+.intro-anchor .greeting{left:0;top:0}
+.intro-anchor .portfolio-art{left:0;top:119px}
+.intro-anchor .website-line{left:0;top:283px}
+.intro-anchor .about-pill{left:0;top:387px}
+.intro-anchor .star-91{left:501.081px;top:183.096px}
+.intro-anchor .star-115{left:206.886px;top:8.005px}
+.intro-anchor .star-96{left:174.939px;top:457.526px}
+.intro-anchor .star-98{left:-179.265px;top:103.434px}
+.intro-anchor .star-99{left:408.934px;top:340.897px}
+.portrait-anchor{position:absolute;right:-165px;top:127px;width:688px;height:563px}
+.portrait-anchor .portrait-art{left:-4.183px;top:0}
+.portrait-anchor .star-92{left:469.608px;top:5.541px}
+.portrait-anchor .sparkle-art{left:45.816px;top:107.816px}
+.cloud-anchor{position:absolute;right:-80.257px;top:641px;width:455.257px;height:229.852px}
+.cloud-anchor .rainbow-art{left:145.333px;top:50.465px}
+.cloud-anchor .cloud-art{left:0;top:91px}
+
