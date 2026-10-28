@@ -1,5 +1,6 @@
 const categories=['content','content','content','content','animation','animation','animation','shortfilm'];
-function categoryProjects(index){return categories.flatMap((category,i)=>category===categories[index]?[i]:[]);}
+const projectOrder=[0,3,2,1,4,6,5,7];
+function categoryProjects(index){return projectOrder.filter(i=>categories[i]===categories[index]);}
 function adjacentProject(index,direction){const group=categoryProjects(index);return group[group.indexOf(index)+direction];}
 const overlay=document.querySelector('#overlay');
 const dialog=document.querySelector('.popover');
@@ -138,7 +139,8 @@ function renderWorks(category){
   activeCategory=category;
   document.querySelectorAll('[data-category]').forEach(chip=>chip.setAttribute('aria-pressed',String(chip.dataset.category===category)));
   grid.replaceChildren();
-  projects.forEach((project,index)=>{
+  projectOrder.forEach(index=>{
+    const project=projects[index];
     if(categories[index]!==category)return;
     const card=document.createElement('a');
     card.className='work-card';
