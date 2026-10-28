@@ -46,7 +46,7 @@ html{scroll-behavior:smooth}
 .contact-email{left:431.921px;top:209.577px;width:167.288px;height:164.071px}
 .contact-behance{left:79.734px;top:37.936px;width:263.077px;height:280.689px}
 .contact-arc{left:auto;right:58.56px}
-.contact-marquee{position:fixed;left:max(116px,calc((100vw - 1600px)/2 + 116px));right:max(0px,calc((100vw - 1600px)/2));bottom:0;height:54px;overflow:hidden;mix-blend-mode:screen;pointer-events:none;z-index:3}
+.contact-marquee{position:fixed;left:max(116px,calc((100vw - 1600px)/2 + 116px));right:max(0px,calc((100vw - 1600px)/2));bottom:20px;height:54px;overflow:hidden;mix-blend-mode:screen;pointer-events:none;z-index:3}
 .marquee-track{display:flex;width:max-content;animation:contact-loop 22s linear infinite}
 .marquee-track img{flex:0 0 1239px;width:1239px;height:54px;display:block}
 @keyframes contact-loop{to{transform:translateX(-1239px)}}
