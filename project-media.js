@@ -77,10 +77,10 @@ const projectMedia = [
         "items": [
           {
             "type": "image",
-            "src": "/assets/projects/02/1.png",
-            "width": 1280,
-            "height": 1047,
-            "file": "1.png"
+            "src": "/assets/projects/02/meet-dodeez.png",
+            "width": 1387,
+            "height": 1134,
+            "file": "meet-dodeez.png"
           }
         ]
       },
@@ -148,7 +148,7 @@ const projectMedia = [
         ]
       }
     ],
-    "cover": "/assets/covers/project-02.png"
+    "cover": "/assets/projects/02/meet-dodeez.png"
   },
   {
     "folder": "street photo",
